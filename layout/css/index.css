@@ -9,24 +9,51 @@ body {
 }
 
 /* TODO: tell the browser to include borders and padding in size calculations */
-
+* {
+    box-sizing: border-box;
+}
 /* TODO: constrain the width of <div class="container"> elements to a max of 1120px
 and keep the content horizontally-centered with 1rem of padding on left/right */
-
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+}
 /* TODO: set background image of the <header> to `header.jpg` in the `img` directory,
 and set text color to white, and ensure the height is at least 200px */
-
+header {
+    background-image: url(../img/header.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #FFF;
+}
 /* TODO: set the font size of the <h1> in the <header> to 5rem
 and the font weight to 200 */
-
+header h1 {
+    font-size: 5rem;
+    font-weight: 200;
+    margin-top: 0;
+    flex: 1;
+}
 /* TODO: set the height of the SVG icon to 3rem
 and tell it to use the current text color for its fill color */
-
+header svg {
+    height: 3rem;
+    fill: currentColor;
+}
 /* TODO: make the color of the hyperlink white instead of blue
 and when it has focus/hover change the color to #FF9800, 
 from Material Design Color Palette: 
 https://material.io/guidelines/style/color.html#color-color-palette */
-
+header a {
+    color: #FFF;
+}
+header a:hover, 
+header a:focus {
+    color: #FF9800;
+    transition: all 1s;
+}
 /* TODO: make the <div class="col"> elements layout side-by-side instead of stacked 
 and use flexbox to make the numbers vertically centered within the elements */
 .col {
@@ -35,8 +62,26 @@ and use flexbox to make the numbers vertically centered within the elements */
     min-height: 150px;
     font-weight: 600;
     color: #FFF;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
 }
 
 /* TODO: set the background color of every-other <div class="col"> element 
 to #E65100 so that we can see where the columns begin/end */
+.col:nth-of-type(odd) {
+    background-color: #E65100;
+} 
+.col:nth-of-type(1) {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 250px;
+    /* or do flex: 0 0 250px*/
+}
+
+.row {
+    display: flex;
+    flex-direction: row-reverse;
+}
 
