@@ -1,32 +1,17 @@
 # Lab 1: Git Lab!
 
-Welcome to INFO 343! Our first lab will focus on sharpening your git skills, specifically working with branches and pull requests. You will submit all your homework assignments as pull requests, so this lab will walk you through how that is done. I recommend working on this lab as pairs, as git is usually used in a collaborative environment.
+Welcome to INFO 343! Our first exercise will focus on sharpening your git skills, specifically working with branches and pull requests. You will submit all your homework assignments as pull requests, so this exercise will walk you through how that is done. 
 
-## Creating and Sharing New Repo
-* Have one person create a new repo. To do this:
+## Creating a New Repo
+* Create a new repo. To do this:
   1. Click on "Start a project" from the GitHub homepage 
 ![Start the project](./images/startproject.png?raw=true)
 
   2. Name the repo something (like git-lab shown here). Make sure "Public" and "Initialize this repository with a README" are checked. Then, click "Create repository"
 ![Name the repo](./images/namerepo.png?raw=true)
 
-* Next, invite your partner to collaborate on your repo. To do this:
-  1. From the repository home page, click on "Settings"
-![Click on settings](./images/frontpage.png?raw=true)
-
-  2. Click on "Collaborators" 
-![Click on collaborators](./images/settings.png?raw=true)
-
-  3. Type your partner's username and click "Add collaborator"
-![Add collaborators](./images/addcollab.png?raw=true)
-
-  4. Click on "Copy invite link" and send your partner the link through your favorite messaging service (Facebook, Slack) and have your partner accept your collaboration invitation. Alternatively, your partner will receive an email where he/she can accept the invitation
-![Send invite link](./images/invitelink.png?raw=true)
-
 ## Creating Branches and Files
-From this point forward, both of you will be completing the following exercises.
-
-* Each of you must clone your newly created repo onto your computers. If you don't remember (or know how) to do this: Refer to Dr. Stearns' write up on [Git and GitHub](https://drstearns.github.io/tutorials/git/).
+* Clone your newly created repo onto your computer. If you don't remember (or know how) to do this: Refer to Dr. Stearns' write up on [Git and GitHub](https://drstearns.github.io/tutorials/git/).
 
 * `cd` into your newly cloned repo
 
@@ -49,7 +34,6 @@ This is how you will be turning in your homeworks to Canvas for me to grade.
   
   Note: If you are using two-factor authenication with your GitHub account, you will need to generate a [Personal Access Token](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens) and use that in place of your password
 
-
 * From the home page of the repo, click on the "Pull Requests" tab
 ![Click on pull requests](./images/frontpagepull.png?raw=true)
 
@@ -65,12 +49,10 @@ This is how you will be turning in your homeworks to Canvas for me to grade.
 * You can then optionally leave a comment, then click on "Create pull request"
 ![Click on create pull request](./images/finishrequest.png?raw=true)
 
-* Then, copy the URL of your pull request and share it with your partner
-
 ## Code Review
-You will now be reviewing your partner's code and leaving comments. In practice, this is useful during collaboration as it allows you to revise mistakes, add suggestions, and overall, improve the quality of the code. In this class, this is how I will be giving you feedback on your homework assignments.
+You will now be reviewing code and leaving comments. In practice, this is useful during collaboration as it allows you to revise mistakes, add suggestions, and overall, improve the quality of the code. In this class, this is how I will be giving you feedback on your homework assignments.
 
-* On your partner's pull request, click on "Files changed"
+* On your pull request, click on "Files changed"
 ![Click on files changed](./images/codereview.png?raw=true)
 
 * You can add a comment to any line of code by simply hovering over a specific line and clicking on the blue plus button
