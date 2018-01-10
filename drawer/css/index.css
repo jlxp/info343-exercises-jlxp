@@ -37,3 +37,46 @@ header h1 {
 }
 
 /* TODO: make the <nav> element into a slide-out drawer */
+nav {
+    position: fixed; /*fixes things to the content area of browser window, it will not scroll*/
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    z-index: 1; /* where this element is in respect to other elements*/
+    background-color: #fff;
+    transform: translateX(-300px);
+}
+
+nav, 
+.content {
+    transition: all 500ms;
+}
+
+.drawer-open nav {
+    transform: translateX(0);
+}
+
+.drawer-open .content {
+    transform: translateX(300px);
+}
+
+main {
+    position: relative;
+}
+
+main:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+.drawer-open main:after {
+    opacity: 1;
+}
