@@ -1,0 +1,92 @@
+/* 
+    index.css
+    stylesheet for the index.html page
+*/
+/* set body font family and size */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+}
+
+/* tell the browser to include borders and padding in size calculations */
+* {
+    box-sizing: border-box;
+}
+
+/* constrain the width of <div class="container"> elements to a max of 1120px
+and keep the content horizontally-centered with 1rem of padding on left/right */
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+/* set background image of the <header> to a linear gradient
+and set text color to white */
+header {
+    background-image: linear-gradient(to right, #014875, #01638D);
+    color: #FFF;
+}
+
+/* make the children of the header container layout side-by-side */
+header .container {
+    display: flex;
+    align-items: center;
+}
+/* set the font size of the <h1> in the <header> to 5rem
+and the font weight to 200 */
+header h1 {
+    font-size: 5rem;
+    font-weight: 200;
+    margin: 0;
+    flex: 1;  /* grow to consume remaining width */
+}
+/* set the height of the SVG icon to 3rem
+and tell it to use the current text color for its fill color */
+header svg {
+    height: 3rem;
+    fill: currentColor;
+}
+/* make the color of the hyperlink white instead of blue
+and when it has focus/hover change the color to #FF9800, 
+from Material Design Color Palette: 
+https://material.io/guidelines/style/color.html#color-color-palette */
+header a {
+    color: #FFF;
+    transition: all 1s;
+}
+header a:hover,
+header a:focus {
+    color: #FF9800;
+}
+
+/* use flexbox to make the column numbers vertically & horizontally 
+centered within the elements */
+.col {
+    background-color: #FF9800; 
+    font-size: 2rem;
+    min-height: 150px;
+    font-weight: 600;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* set the background color of every-other <div class="col"> element 
+to #E65100 so that we can see where the columns begin/end */
+.col:nth-of-type(odd) {
+    background-color: #E65100;
+}
+
+/* TODO: make the <div class="col"> elements layout in
+a 2 x 3 arrangement on screens 768px and wider */
+
+/* TODO: make the <div class="col"> elements layout in
+a 3 x 2 arrangement on screens 992px and wider */
+
+/* TODO: make the <div class="col"> elements layout in
+a 1 x 6 arrange on screens 1200px and wider */
+
+/* TODO: adjust your rules so that the <header>
+element uses the img/header.jpg as its background
+image, and has 100px of padding on the top,
+on screens 768px and wider */
