@@ -12,8 +12,9 @@ The lab machines completely reset when you log out, so you'll have to do all of 
 
 ```bash
 git config --global user.name "Your Name"
-git config --global user.email your-netid@uw.edu
+git config --global user.email email-address-used-on-github
 ```
+
 Then clone your exercises repo to your lab machine, and execute these commands **from within the repo directory** to pull the updates:
 
 ```bash
