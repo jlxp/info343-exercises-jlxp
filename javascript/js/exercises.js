@@ -11,12 +11,11 @@
  * https://code.visualstudio.com/docs/languages/javascript#_type-checking-and-quick-fixes-for-javascript-files
  */
 
-
 /**
  * TODO: tell the interpreter to go into strict mode
  * https://drstearns.github.io/tutorials/javascript/#secstrictmode
  */
-
+"use strict";
 
 
 /**
@@ -40,7 +39,7 @@
 function caseInsensitiveEquals(string1, string2) {
     //hints:
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
-    
+    return string1.toLowerCase() === string2.toLowerCase();
 }
 
 /**
@@ -54,7 +53,7 @@ function startsWith(stringValue, prefix) {
     //strings, this won't be supported in older browsers, so
     //implement this logic yourself using `.substr()`
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr
-
+    return stringValue.substr(0, prefix.length).toLowerCase() === prefix.toLowerCase();
 }
 
 /**
@@ -68,7 +67,7 @@ function toTitleCase(word) {
     //hints:
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
-
+    return word.substr(0, 1).toUpperCase() + word.substr(1).toLowerCase();
 }
 
 /**
@@ -80,7 +79,7 @@ function toTitleCase(word) {
 function randomInteger(min, max) {
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
-    
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 //ARRAYS
@@ -92,7 +91,7 @@ function randomInteger(min, max) {
 function createPrioritiesArray() {
     //don't overthink this: I just want you to practice the array literal syntax
     //https://developer.mozilla.org/en-US/docs/Glossary/array
-    
+    return ["low", "medium", "high"];
 }
 
 /**
@@ -105,7 +104,11 @@ function evensUnder(max) {
     //hints:
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
-
+    let result = [];
+    for (let i = 0; i < max; i+=2) {
+        result.push(i);
+    }
+    return result;
 }
 
 /**
@@ -119,7 +122,12 @@ function evensUnder(max) {
 function elementIndex(array, element) {
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length
     //https://drstearns.github.io/tutorials/javascript/#secequalityandcoercion
-
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === element) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 /**
@@ -130,7 +138,13 @@ function elementIndex(array, element) {
 function largestNumber(numberArray) {
     //hint: you'll need a variable outside of your for loop
     //to track the largest number you've seen so far
-
+    let max = numberArray[0];
+    for (let i = 1; i < numberArray.length; i++) {
+        if (numberArray[i] > max) {
+            max = numberArray[i];
+        }
+    }
+    return max;
 }
 
 /**
@@ -142,7 +156,15 @@ function largestNumber(numberArray) {
  */
 function average(numberArray) {
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length
-
+    if (numberArray.length === 0) {
+        return undefined;
+    } else {
+        let avg = 0;
+        for (let i = 0; i < numberArray.length; i++) {
+            avg += numberArray[i];
+        }
+        return avg = avg / numberArray.length;
+    }
 }
 
 /**
@@ -156,7 +178,11 @@ function reverseArray(array) {
     //create a new array and populate it with 
     //the same elements but in reverse order
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-
+    let result = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+        result.push(array[i]);
+    }
+    return result;
 }
 
 /**
@@ -183,7 +209,11 @@ function createTask(taskTitle) {
     //use the object literal syntax to create a new object
     //with only two properties as described above.
     //https://drstearns.github.io/tutorials/javascript/#secobjects
-
+    let task = {
+        title: taskTitle,
+        done: false
+    }
+    return task;
 }
 
 /**
@@ -194,7 +224,7 @@ function createTask(taskTitle) {
  */
 function setPriority(task, taskPriority) {
     //https://drstearns.github.io/tutorials/javascript/#secobjects
-
+    task.priority = taskPriority;
 }
 
 /**
@@ -206,7 +236,11 @@ function setPriority(task, taskPriority) {
  */
 function toggleDone(task) {
     //https://drstearns.github.io/tutorials/javascript/#secobjects
-
+    if (task.done) {
+        task.done = false;
+    } else {
+        task.done = true;
+    }
 }
 
 /**
@@ -226,7 +260,19 @@ function addTag(task, tag) {
     //else if the task.tags array doesn't already
     //contain the value of the `tag` parameter, 
     //add the value of the `tag` parameter to the array.
-
+    if (task.hasOwnProperty("tags")) {
+        let found = false;
+        for (let i = 0; i < task.tags.length; i++) {
+            if (task.tags[i] === tag) {
+                found = true;
+            }
+        }
+        if (!found) {
+            task.tags.push(tag);
+        }
+    } else {
+        task.tags = [tag];
+    }
 }
 
 /**
@@ -246,7 +292,16 @@ function removeTag(task, tag) {
     //property from the `task` object.
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
-
+    if (task.hasOwnProperty("tags")) {
+        for (let i = 0; i < task.tags.length; i++) {
+            if (task.tags[i] === tag) {
+                task.tags.splice(i, 1);
+            }
+        }
+    }
+    if (task.tags.length === 0) {
+        delete task.tags;
+    }
 }
 
 /**
@@ -260,7 +315,11 @@ function removeTag(task, tag) {
 function createTasksArray(titlesArray) {
     //use your createTask() function above
     //to create each task object
-
+    let result = [];
+    for (let i = 0; i < titlesArray.length; i++) {
+        result.push(createTask(titlesArray[i]));
+    }
+    return result;
 }
 
 /**
@@ -290,6 +349,13 @@ function getProperty(obj, propPath) {
     //remember that you can get the value associated
     //with a property name stored in a variable using the
     //obj[variable] syntax.
-
-    
+    let path = propPath.split(".");
+    let prev = obj;
+    for (let i = 0; i < path.length; i++) {
+        if (prev[path[i]] === undefined) {
+            return undefined;
+        }
+        prev = prev[path[i]];
+    }
+    return prev;
 }
