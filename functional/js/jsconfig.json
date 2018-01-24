@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES6"
+    },
+    "exclude": [
+        "node_modules",
+        "data",
+        "constitution.js",
+        "yob1997.js",
+        "seaweather-1948-2017.js"
+    ]
+}
