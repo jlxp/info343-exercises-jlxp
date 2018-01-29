@@ -1,0 +1,47 @@
+body, html, input, button {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+}
+.color-picker {
+    background-color: #3A3A3A;
+    padding: 10px;
+}
+.color-picker > div {
+    margin-bottom: 10px;
+}
+.color-picker button {
+    background-color: #DDD;
+    border: 1px solid #999;
+    padding: 7px;
+}
+.swatches {
+    display: flex;
+}
+.color-picker .swatch {
+    border: none;
+    height: 50px;
+    flex: 1;
+    cursor: pointer;
+}
+.current {
+    height: 100px;
+    border: 1px solid #DDD;
+}
+label {
+    color: #DDD;
+}
+input {
+    padding: 7px;
+}
+.rgb {
+    display: flex;
+    justify-content: space-around;
+}
+.custom-color {
+    display: flex;
+}
+.custom-color > input {
+    flex: 1;
+}

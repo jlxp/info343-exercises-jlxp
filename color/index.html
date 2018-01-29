@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Color Picker</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="img/page-icon.png?5">
+</head>
+<body>
+    <div class="color-picker">
+        <div class="swatches"></div>
+        <div class="current"></div>
+        <div class="rgb">
+            <label>Red
+                <input type="number" class="red" min="0" max="255" size="4">
+            </label>
+            <label>Green
+                <input type="number" class="green" min="0" max="255" size="4">
+            </label>
+            <label>Blue
+                <input type="number" class="blue" min="0" max="255" size="4">
+            </label>
+        </div>
+        <div class="custom-color">
+            <input type="text" class="custom-color-name" placeholder="name for new color" aria-label="name for new color">
+            <button class="add-custom-color-button">Add Color</button>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
