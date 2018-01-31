@@ -20,6 +20,9 @@ let state = {
  * @param {State} state 
  */
 function render(state) {
+    let elapsed = Date.now() - state.startTime;
+    
+    elapsed
     /* TODO: state.startTime property will be set to the
     result of calling Date.now() when the timer is started. 
     This value is the number of milliseconds that have elapsed
@@ -72,4 +75,19 @@ function render(state) {
 //and add a click event listener. When the button is clicked,
 //stop the timer ID stored in `state.timer`.
 //https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval
+document.querySelector("start-button") 
+    .addEventListener("click", function() {
+        if (state.timer) {
+            return;
+        }
+        state.timer.setInterval(function() {
+        state.startTime = Date.now();
+        state.timer = setInterval(function() {
+            render(state);
+        }, 1000);
+    });
 
+document.querySelector(".stop-buttion")
+    .addEventListener("click", function() {
+        window.clearInterval(state.timer);
+    });

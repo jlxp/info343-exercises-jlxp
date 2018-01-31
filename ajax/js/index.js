@@ -11,6 +11,8 @@ const PROGRESS_BAR = document.querySelector(".progress");
 const ERROR_ALERT_DIV = document.querySelector(".alert-danger");  
 const RESULTS_DIV = document.querySelector("#results");
 
+let previewAudio = new Audio();
+
 /**
  * Handles responses from the fetch() API.
  * The iTunes API always returns JSON, even for
@@ -39,6 +41,28 @@ function handleError(err) {
     console.error(err);
     //TODO: display error message in ERROR_ALERT_DIV
     //so the user can see it
+    ERROR_ALERT_DIV.textContent = err.message;
+    ERROR_ALERT_DIV.classList.remove("d-none");
+}
+
+function renderTrack(track) {
+    let img = document.createElement("img");
+    img.src = track.artworkUrl100;
+    img.alt = track.trackName;
+    img.title = track.trackName;
+    img.addEventListener("click", function() {
+        if (previewAudio.src === track.previewUrl) {
+            if (previewAudio.paused) {
+                previewAudio.play();
+            } else {
+                previewAudio.pause();
+            }
+        } else {
+            previewAudio.src = track.previewUrl;
+            previewAudio.play();
+        }
+    })
+    return img;
 }
 
 /**
@@ -54,7 +78,12 @@ function renderResults(data) {
     //https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#understand
 
     //TODO: render the objects in the `results` array to the screen
-    
+    console.log(data);
+    ERROR_ALERT_DIV.classList.add("d-none");
+    RESULTS_DIV.textContent= "";
+    for(let i = 0; i < data.results.length; i++) {
+        RESULTS_DIV.appendChild(renderTrack(data.results[i]));
+    }
 }
 
 //TODO: listen for the "submit" event
@@ -63,3 +92,17 @@ function renderResults(data) {
 //and use fetch() to search iTunes for tracks
 //matching the term the user entered in the
 //<input> element within the form.
+document.querySelector("#search-form")
+    .addEventListener("submit", function(evt) {
+        evt.preventDefault(); // stops the browser from sending the data to another server and lets us handle the data instead
+        let q = this.querySelector("input").value;
+        console.log("searching for %s", q);
+        PROGRESS_BAR.classList.remove("d-none");
+        fetch(SEARCH_API + q)
+            .then(handleResponse)
+            .then(renderResults)
+            .catch(handleError)
+            .then(function() {
+                PROGRESS_BAR.classList.add("d-none");
+            });
+    });

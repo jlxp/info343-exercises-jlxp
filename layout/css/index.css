@@ -73,7 +73,7 @@ to #E65100 so that we can see where the columns begin/end */
 .col:nth-of-type(odd) {
     background-color: #E65100;
 } 
-.col:nth-of-type(1) {
+b.col:nth-of-type(1) {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 250px;

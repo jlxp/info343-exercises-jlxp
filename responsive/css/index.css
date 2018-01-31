@@ -79,13 +79,33 @@ to #E65100 so that we can see where the columns begin/end */
 
 /* TODO: make the <div class="col"> elements layout in
 a 2 x 3 arrangement on screens 768px and wider */
-
+@media (min-width: 768px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .col {
+        flex: 1 0 50%;
+    }
+    header {
+        background-image: url(../img/header.jpg);
+        padding-top: 100px;
+    }
+}
 /* TODO: make the <div class="col"> elements layout in
 a 3 x 2 arrangement on screens 992px and wider */
-
+@media (min-width: 992px) {
+    .col {
+       flex: 1 0 33%; 
+    }
+}
 /* TODO: make the <div class="col"> elements layout in
 a 1 x 6 arrange on screens 1200px and wider */
-
+@media (min-width: 1200px) {
+    .col {
+        flex: 1;
+    }
+}
 /* TODO: adjust your rules so that the <header>
 element uses the img/header.jpg as its background
 image, and has 100px of padding on the top,

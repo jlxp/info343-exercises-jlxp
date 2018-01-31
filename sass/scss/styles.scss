@@ -1,3 +1,5 @@
+$heading-color: #FF0000;
+$font-weight: 600;
 * {
     box-sizing: border-box;
 }
@@ -18,25 +20,44 @@ header p {
 }
 
 #first {
-    color: #FF0000;
+    color: $heading-color;
     opacity: 1;
-    font-weight: 600;
+    font-weight: $font-weight;
+}
+
+header {
+    p {
+        font-weight: 300;
+        color: #3b5998
+    }
+
+    h1 {
+        font-weight: 300;
+        color: #3b5998
+    }
+}
+
+footer {
+    p {
+        color: #3b5998;
+        font-weight: $font-weight;
+    }
 }
 
 #second {
-    color: #FF0000;
+    color: $heading-color;
     opacity: 0.8;
-    font-weight: 600;
+    font-weight: $font-weight;
 }
 
 #third {
-    color: #FF0000;
+    color: $heading-color;
     opacity:  0.6;
-    font-weight: 600;
+    font-weight: $font-weight;
 }
 
 #fourth {
-    color: #FF0000;
+    color: $heading-color;
     opacity: 0.4;
-    font-weight: 600;
+    font-weight: $font-weight;
 }
