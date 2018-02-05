@@ -1,0 +1,20 @@
+{
+  "name": "classes",
+  "version": "1.0.0",
+  "description": "ES6 Classes Practice Exercises",
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.1.4"
+  }
+}

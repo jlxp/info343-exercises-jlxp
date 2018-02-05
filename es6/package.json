@@ -1,0 +1,30 @@
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "description": "ES6 Demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/info343b-w18/exercises"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack --optimize-minimize",
+    "clean": "rm build/bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.9",
+    "style-loader": "^0.20.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "whatwg-fetch": "^2.0.3"
+  }
+}

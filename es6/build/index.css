@@ -1,0 +1,10 @@
+#results {
+    display: flex;
+    flex-wrap: wrap;
+}
+#results > * {
+    flex: 25%;
+}
+#results img {
+    cursor: pointer;
+}

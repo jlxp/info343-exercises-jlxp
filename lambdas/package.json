@@ -1,0 +1,19 @@
+{
+  "name": "lambdas",
+  "version": "1.0.0",
+  "description": "exercises using lambda functions",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.1.4"
+  }
+}
