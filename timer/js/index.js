@@ -11,7 +11,7 @@
  * @type {State}
  */
 let state = {
-    startTime: undefined,
+    startTime: Date.now(),
     timer: undefined
 }
 
@@ -20,9 +20,14 @@ let state = {
  * @param {State} state 
  */
 function render(state) {
-    let elapsed = Date.now() - state.startTime;
+    let milliseconds = Date.now() - state.startTime;
+    let minutes = Math.floor(milliseconds / 60000);
+    let seconds = ((milliseconds % 60000) / 1000).toFixed(0);   
     
-    elapsed
+    let min = document.querySelector(".minutes");
+    min.textContent = "" + minutes;
+    let sec = document.querySelector(".seconds");
+    sec.textContent = "" + seconds;
     /* TODO: state.startTime property will be set to the
     result of calling Date.now() when the timer is started. 
     This value is the number of milliseconds that have elapsed
@@ -37,7 +42,7 @@ function render(state) {
     into 1 minute and 2 seconds. If the number of milliseconds
     doesn't divide evenly into seconds, use Math.floor() to
     round down to the previous second.
-
+    
     After you calculate the elapsed minutes and seconds,
     set the text content of the <span class="minutes">
     element to the number of minutes, and the text content
@@ -75,19 +80,23 @@ function render(state) {
 //and add a click event listener. When the button is clicked,
 //stop the timer ID stored in `state.timer`.
 //https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval
-document.querySelector("start-button") 
+document.querySelector(".start-button")
     .addEventListener("click", function() {
+        //if we already started the timer, just return
         if (state.timer) {
             return;
         }
-        state.timer.setInterval(function() {
+        //capture the current time
         state.startTime = Date.now();
+        //start a timer that fires once a second (1000 milliseconds)
+        //and hold on to the timer ID in state.timer
         state.timer = setInterval(function() {
+            //call our render() function passing the current state
             render(state);
         }, 1000);
     });
 
-document.querySelector(".stop-buttion")
+document.querySelector(".stop-button")
     .addEventListener("click", function() {
         window.clearInterval(state.timer);
     });

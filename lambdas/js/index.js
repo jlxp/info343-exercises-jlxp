@@ -24,6 +24,8 @@ export function getRecordsWithNamePrefix(nameRecordsArray, name) {
     //DO NOT declare another function to do this: use a lambda
     //so that you can practice using them
     //https://drstearns.github.io/tutorials/es6/#seclambdafunctions
+    return nameRecordsArray
+        .filter(r => r.name.startsWith(name));
 }
 
 /**
@@ -40,7 +42,8 @@ export function getNameWithMaxCount(nameRecordsArray) {
     //DO NOT declare another function to do this: use a lambda
     //so that you can practice using them
     //https://drstearns.github.io/tutorials/javascript/#secternaryconditionoperator
-    
+    return nameRecordsArray
+        .reduce((max, curr) => max.count < curr.count ? curr : max, nameRecordsArray[0]).name;
 }
 
 /**
@@ -64,6 +67,10 @@ export function getMostPopularNames(nameRecordsArray, sex, max) {
     //and clear implementation
     //DO NOT declare additional functions to do this: use lambdas
     //so that you can practice using them
-
+    return nameRecordsArray
+        .filter(r => r.sex === sex)
+        .sort((a, b) => b.count - a.count)
+        .slice(0, max)
+        .map(baby => baby.name);
 }
 

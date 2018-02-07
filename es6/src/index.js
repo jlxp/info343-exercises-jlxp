@@ -1,7 +1,9 @@
 //TODO: import fetch() polyfill library `whatwg-fetch`
 //from the node_modules directory
 //this will ensure it's added to the final bundle.js
-
+import "whatwg-fetch";
+import TrackCard from "./TrackCard";
+import ProgressBar from "./ProgressBar";
 
 //iTunes Search API
 //`entity=music` filters for just music tracks and music videos
@@ -58,9 +60,24 @@ function renderResults(data) {
     //TODO: create a TrackCard object for each track in 
     //the `data.results` array, and render it into the
     //the RESULTS_DIV element
-
+    console.log(data);
+    RESULTS_DIV.textContent = "";
+    for (let i = 0; i < data.results.length; i++) {
+        let tc = new TrackCard(data.results[i]);
+        RESULTS_DIV.appendChild(tc.render());
+    }
 }
 
 //TODO: listen for the "submit" event raised
 //by the SEARCH_FORM element, and query the iTunes
 //API. Use a lambda function for the event listener!
+SEARCH_FORM.addEventListener("submit", evt => {
+    evt.preventDefault();
+    let q = SEARCH_INPUT.value;
+    RESULTS_DIV.textContent = "";
+    RESULTS_DIV.appendChild(new ProgressBar().render());
+    fetch(SEARCH_API + q)
+        .then(handleResponse)
+        .then(renderResults)
+        .catch(handleError);
+})
