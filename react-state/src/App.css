@@ -1,0 +1,16 @@
+.results {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.results .progress {
+  width: 100%;
+}
+
+.results > .track {
+  padding: 0.5rem 0;
+  flex: 25%;
+  text-align: center;
+
+}
