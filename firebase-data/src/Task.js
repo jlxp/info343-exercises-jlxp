@@ -26,16 +26,20 @@ export default class Task extends React.Component {
         //but remember that you can get the ref for
         //a snapshot by accessing the snapshot's .ref
         //property
-
+        let ref = this.props.taskSnap.ref;
+        ref.update({
+            done: !curDone
+        });
     }
     render() {
         //TODO: get the task properties and render accordingly;
         //use `doneStyles` if the task's .done property is truthy,
         //else use `baseStyles`
-        let styles = doneStyles;
+        let task = this.props.taskSnap.val();
+        let styles = task.done ? doneStyles : baseStyles;
         return (
-            <li style={styles} onClick={() => this.handleClick()} >
-                TODO: put task title here
+            <li style={styles} onClick={() => this.handleClick(task.done)} >
+                {task.title}
             </li>
         );
     }

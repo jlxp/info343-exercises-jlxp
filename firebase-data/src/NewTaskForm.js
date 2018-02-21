@@ -17,6 +17,12 @@ export default class NewTaskForm extends React.Component {
         //TODO: construct a new task object
         //and insert it as a child of the tasksRef
         //and handle any errors that might occur!
+        let task = {
+            title: this.state.title
+        };
+        this.props.tasksRef.push(task)
+            .then(() => this.setState({title: "", fbError: undefined}))
+            .catch(err => this.setState({fbError: err}));
     }
     render() {
         return (
